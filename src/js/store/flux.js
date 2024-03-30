@@ -1,44 +1,77 @@
-const getState = ({ getStore, getActions, setStore }) => {
-	/*
-	//People
-	{
-		name: anakin
-		age: 22
-	}
-	//Planets
-	{
+const base = "https://www.swapi.tech/api/";
 
-	}
-	//Vehicles
-	{
-		model: 
-	}
-	*/
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			characters: [
-				{
-					properties: {
-						name: 'Ernesto',
-						height: '2m'
-					},
-					description: 'This character is cool'
-				}
-			],
-			planets: [
-				{
-					properties: {
-						name: 'tatooine',
-						diameter: '2000000000000m'
-					},
-					description: 'This planet is cool'
-				}
-			],
+			characters: [],
+			planets: [],
 			vehicles: [],
 		},
 		actions: {
-			loadStarWars: () => {
+			loadStarWarsPeople: async () => {
+				try {
+					const response = await fetch(base + "people")
+					const data = await response.json()
+					if (data?.message !== 'ok') throw Error
+
+					const promises = data.results.map(person => fetch(person.url))
+					const responses = await Promise.all(promises);
+					const finalizedData = await Promise.all(responses.map(response => response.json()));
+					const formattedData = finalizedData.map(response => {
+						return { 
+							description: response.result.description,
+							uid: response.result.uid,
+							...response.result.properties
+						}
+					})
+					setStore({ characters: formattedData })
+				} catch(e) {
+					console.error(e)
+				}
 				console.log("fetch data and update store here!")
+			},
+			loadStarWarsPlanets: async () => {
+				try {
+					const response = await fetch(base + "planets")
+					const data = await response.json()
+					if (data?.message !== 'ok') throw Error
+
+					const promises = data.results.map(planet => fetch(planet.url))
+					const responses = await Promise.all(promises);
+					const finalizedData = await Promise.all(responses.map(response => response.json()));
+					const formattedData = finalizedData.map(response => {
+						return { 
+							description: response.result.description,
+							uid: response.result.uid,
+							...response.result.properties
+						}
+					})
+					setStore({ planets: formattedData })
+				} catch(e) {
+					console.error(e)
+				}
+				console.log("fetch data and update store planets!")
+			},
+			loadStarWarsVehicles: async () => {
+				try {
+					const response = await fetch(base + "vehicles")
+					const data = await response.json()
+					if (data?.message !== 'ok') throw Error
+
+					const promises = data.results.map(vehicle => fetch(vehicle.url))
+					const responses = await Promise.all(promises);
+					const finalizedData = await Promise.all(responses.map(response => response.json()));
+					const formattedData = finalizedData.map(response => {
+						return { 
+							description: response.result.description,
+							uid: response.result.uid,
+							...response.result.properties
+						}
+					})
+					setStore({ vehicles: formattedData })
+				} catch(e) {
+					console.error(e)
+				}
 			}
 		}
 	};
