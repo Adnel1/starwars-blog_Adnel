@@ -7,8 +7,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import HomeGrid from './component/homegrid';
-import PersonDetails from './component/personDetails'
-import PlanetDetails from './component/planetDetails'
+import Details from './component/details'
 
 //create your first component
 const Layout = () => {
@@ -23,9 +22,7 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<HomeGrid />} />
-						<Route path="/person_details/:id" element={<PersonDetails />} />
-						<Route path="/planet_details/:id" element={<PlanetDetails />} />
-						<Route path="/demo" element={<Demo />} />
+						<Route path="/details/:id" element={<Details />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 				</ScrollToTop>

@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [],
 			vehicles: [],
+			favorites: []
 		},
 		actions: {
 			loadStarWarsPeople: async () => {
@@ -21,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return { 
 							description: response.result.description,
 							uid: response.result.uid,
+							id: response.result._id,
 							...response.result.properties
 						}
 					})
@@ -43,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return { 
 							description: response.result.description,
 							uid: response.result.uid,
+							id: response.result._id,
 							...response.result.properties
 						}
 					})
@@ -65,6 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return { 
 							description: response.result.description,
 							uid: response.result.uid,
+							id: response.result._id,
 							...response.result.properties
 						}
 					})
@@ -72,6 +76,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch(e) {
 					console.error(e)
 				}
+			},
+			toggleFavorites: (id, isAdding) => {
+				const store = getStore();
+				const favoritesArray = store.favorites;
+
+				if (isAdding) {
+					setStore(
+						{
+							favorites: [...favoritesArray, id]
+						}
+					)
+				}
+				else {
+					const filteredArray = favoritesArray.filter((item) => {return item !== id})
+					setStore(
+						{
+							favorites: filteredArray
+						}
+					)
+				}
+
 			}
 		}
 	};
