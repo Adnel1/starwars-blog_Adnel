@@ -1,5 +1,6 @@
-.favorite-amount {
+.favorite-counter {
     background-color: gray;
     border-radius: 15%;
     font-weight: bold;
+    padding: 3px 7px;
 }

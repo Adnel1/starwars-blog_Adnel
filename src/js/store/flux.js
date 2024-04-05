@@ -30,7 +30,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch(e) {
 					console.error(e)
 				}
-				console.log("fetch data and update store here!")
 			},
 			loadStarWarsPlanets: async () => {
 				try {
@@ -53,7 +52,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch(e) {
 					console.error(e)
 				}
-				console.log("fetch data and update store planets!")
 			},
 			loadStarWarsVehicles: async () => {
 				try {
@@ -97,6 +95,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					)
 				}
 
+			},
+			deleteItem: (id) => {
+				const store = getStore();
+				const favoritesArray = store.favorites;
+
+				const filteredArray = favoritesArray.filter((item) => {return item !== id})
+				setStore(
+					{
+						favorites: filteredArray
+					}
+				)
 			}
 		}
 	};

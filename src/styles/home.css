@@ -1,3 +1,11 @@
+.heart-button::after {
+    content: ' \2661';
+}
+
 .button-active {
     background-color: #ffc107;
+}
+
+.button-active::after {
+    content: ' \2665';
 }

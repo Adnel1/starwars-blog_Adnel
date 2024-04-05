@@ -31,7 +31,8 @@ const HomeGrid = () => {
                             <Link to={`/details/${character.id}`} className="btn btn-outline-primary">
                                 Learn More!
                             </Link>
-                            <a onClick={() => actions.toggleFavorites(character.id, !store.favorites.includes(character.id))} className={store.favorites.includes(character.id) ? 'btn button-active' : 'btn btn-outline-warning'}>heart</a>
+                            <button onClick={() => actions.toggleFavorites(character.id, !store.favorites.includes(character.id))} className={store.favorites.includes(character.id) ? 'btn button-active' : 'btn btn-outline-warning heart-button'}>
+                            </button>
                         </div>
                     </div>
                 ))}
@@ -57,7 +58,8 @@ const HomeGrid = () => {
                             <Link to={`/details/${planet.id}`} className="btn btn-outline-primary">
                                 Learn More!
                             </Link>
-                            <a onClick={() => actions.toggleFavorites(planet.id, !store.favorites.includes(planet.id))} className={store.favorites.includes(planet.id) ? 'btn button-active' : 'btn btn-outline-warning'}>heart</a>
+                            <button onClick={() => actions.toggleFavorites(planet.id, !store.favorites.includes(planet.id))} className={store.favorites.includes(planet.id) ? 'btn button-active' : 'btn btn-outline-warning heart-button'}>
+                            </button>
                         </div>
                     </div>
                 ))}
@@ -83,7 +85,8 @@ const HomeGrid = () => {
                             <Link to={`/details/${vehicle.id}`} className="btn btn-outline-primary">
                                 Learn More!
                             </Link>
-                            <a onClick={() => actions.toggleFavorites(vehicle.id, !store.favorites.includes(vehicle.id))} className={store.favorites.includes(vehicle.id) ? 'btn button-active' : 'btn btn-outline-warning'}>heart</a>
+                            <button onClick={() => actions.toggleFavorites(vehicle.id, !store.favorites.includes(vehicle.id))} className={store.favorites.includes(vehicle.id) ? 'btn button-active' : 'btn btn-outline-warning heart-button'}>
+                            </button>
                         </div>
                     </div>
                 ))}
