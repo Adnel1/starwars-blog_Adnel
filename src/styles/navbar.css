@@ -4,3 +4,11 @@
     font-weight: bold;
     padding: 3px 7px;
 }
+
+.trash {
+    cursor: pointer;
+}
+
+.trash:hover {
+    color: red;
+}
