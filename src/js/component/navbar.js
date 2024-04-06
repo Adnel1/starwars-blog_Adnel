@@ -16,13 +16,13 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light bg-black">
       <div className="container d-flex justify-content-between">
-        <a href="/" className="navbar-brand"><img src="https://1000logos.net/wp-content/uploads/2017/06/Star-Wars-Logo-1.png" alt="" width="100" height="60" /></a>
+        <a href="/" className="navbar-brand"><img src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png" alt="Star Wars logo" width="100" /></a>
         <div className="dropdown">
-          <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="false" aria-expanded="false">
+          <button className="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="false" aria-expanded="false">
             <span className="me-2">Favorites</span>
-            <span className="favorite-counter me-2">{store.favorites.length}</span>
+            <span className="favorite-counter me-2 text-dark">{store.favorites.length}</span>
           </button>
           <div className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuClickable">
             {store.favorites.length > 0 &&

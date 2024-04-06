@@ -9,7 +9,7 @@ const HomeGrid = () => {
     const { store, actions } = useContext(Context);
 
     return (
-        <div className="container">
+        <div className="container pt-5 pb-5">
 
             <div className="pt-2 pb-2">
                 <h3 className="text-danger">Characters</h3>

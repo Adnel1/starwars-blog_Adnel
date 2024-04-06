@@ -14,7 +14,7 @@ const Details = () => {
     if (!currentEntity) return <></>
 
     return (
-        <div className="container">
+        <div className="container pt-5 pb-5">
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
